@@ -1,0 +1,14 @@
+name: Test Only
+
+on: push
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use secret
+        run: echo "Secret is $MY_SECRET"
+        env:
+          MY_SECRET: ${{ secrets.MY_SECRET }}
